@@ -69,5 +69,5 @@ jobs:
         with:
           app-name: 'Procurementportal'
           slot-name: 'Production'
-          package: ${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}
+          package: '.'  # <--- this is the fix
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_42A745DA9D9247EF842DDD2C868C7E5D }}
