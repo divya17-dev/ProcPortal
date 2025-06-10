@@ -6,7 +6,7 @@ import traceback
 try:
     from .extraction import start_email_monitoring
 except ImportError:
-    from email_process.extraction import start_email_monitoring  # fallback
+    from email_process.extraction import start_email_monitoring  
 
 def main(mytimer: func.TimerRequest) -> None:
     logging.info("Timer trigger executed.")
