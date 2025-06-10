@@ -116,7 +116,6 @@ try:
         # missing_collection=db["TestingMissing"]
 
         ATTACHMENT_DIR = os.environ['ATTACHMENT_DIR']
-        #ATTACHMENT_DIR = os.path.join(tempfile.gettempdir(), "attachments")
 
         # # Unique variable
         seen_emails = set()
@@ -466,9 +465,6 @@ try:
         def download_attachments(access_token, message_id, save_dir = os.environ['save_dir']):
             from uuid import uuid4
             try:
-                # if save_dir is None:
-                #     save_dir = tempfile.mkdtemp(dir="/tmp")
-                    #save_dir = os.path.join(tempfile.gettempdir(), "attachments")
                 PDF_DIR = os.path.join(save_dir, "pdf")
                 EXCEL_DIR = os.path.join(save_dir, "excel")
                 DOCUMENT_DIR = os.path.join(save_dir, "documents")
@@ -546,9 +542,6 @@ try:
 
         def save_email_as_eml(access_token, email_id, subject,EMAIL_ID, ATTACHMENT_DIR = os.environ['ATTACHMENT_DIR']):
             try:
-                # if ATTACHMENT_DIR is None:
-                #     ATTACHMENT_DIR = tempfile.mkdtemp(dir="/tmp")
-                    #ATTACHMENT_DIR = os.path.join(tempfile.gettempdir(), "attachments")
                 EML_DIR = os.path.join(ATTACHMENT_DIR, "eml")
 
                 print(f"Fetching email {email_id} as .eml...")
@@ -3961,9 +3954,6 @@ try:
         def clear_attachment_folder(folder_path = os.environ['folder_path']):
             """Deletes all files and subdirectories inside the given folder."""
             try:
-                # if folder_path is None:
-                #     folder_path = tempfile.mkdtemp(dir="/tmp")
-                    #folder_path = os.path.join(tempfile.gettempdir(), "attachments")
                 if os.path.exists(folder_path):
                     shutil.rmtree(folder_path)  # Remove the entire directory
                     os.makedirs(folder_path)  # Recreate the folder to keep the structure intact
