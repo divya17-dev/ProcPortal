@@ -85,7 +85,8 @@ try:
         db_port = int(os.environ.get("db_port",10255))
 
         # Construct MongoDB connection string
-        connection_string = f"mongodb://{db_username}:{db_password}@{db_host}:{db_port}/?ssl=true&replicaSet=globaldb&retrywrites=false&maxIdleTimeMS=120000&appName=@podatabase@"
+        #connection_string = f"mongodb://{db_username}:{db_password}@{db_host}:{db_port}/?ssl=true&replicaSet=globaldb&retrywrites=false&maxIdleTimeMS=120000&appName=@podatabase@"
+        connection_string = f"mongodb://{db_username}:{db_password}@{db_host}:10255/?ssl=true&replicaSet=globaldb&retrywrites=false&maxIdleTimeMS=120000&appName=@procurementportal-dev-cosmosdb@
         print("Using connection string:", connection_string)  # it's working
         # Initialize MongoDB client
         client = pymongo.MongoClient(connection_string,maxPoolSize=10)
