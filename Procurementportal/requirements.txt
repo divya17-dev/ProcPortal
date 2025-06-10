@@ -10,6 +10,7 @@ schedule
 pymongo
 openai
 unstructured[all-docs]
+sentence-transformers
 python-docx
 Pillow
 lxml
