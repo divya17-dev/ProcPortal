@@ -37,7 +37,6 @@ import sys
 sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8', errors='ignore')
 import random
 from concurrent.futures import ThreadPoolExecutor, as_completed
-from sentence_transformers import SentenceTransformer
 import traceback
 import urllib3
 import xml
