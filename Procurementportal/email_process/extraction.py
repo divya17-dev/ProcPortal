@@ -115,7 +115,7 @@ try:
         # proof_collection = db["Testing_Proof"]
         # missing_collection=db["TestingMissing"]
 
-        ATTACHMENT_DIR = "attachments"
+        ATTACHMENT_DIR = "/tmp/attachments"
 
         # # Unique variable
         seen_emails = set()
@@ -463,7 +463,7 @@ try:
 
     
     
-        def download_attachments(access_token, message_id, save_dir="attachments"):
+        def download_attachments(access_token, message_id, save_dir="/tmp/attachments"):
             from uuid import uuid4
             try:
                 PDF_DIR = os.path.join(save_dir, "pdf")
@@ -544,7 +544,7 @@ try:
     
     
 
-        def save_email_as_eml(access_token, email_id, subject,EMAIL_ID, ATTACHMENT_DIR="attachments"):
+        def save_email_as_eml(access_token, email_id, subject,EMAIL_ID, ATTACHMENT_DIR="/tmp/attachments"):
             try:
                 EML_DIR = os.path.join(ATTACHMENT_DIR, "eml")
 
@@ -3956,7 +3956,7 @@ try:
                 return {}, False
  
 
-        def clear_attachment_folder(folder_path="attachments"):
+        def clear_attachment_folder(folder_path="/tmp/attachments"):
             """Deletes all files and subdirectories inside the given folder."""
             try:
                 if os.path.exists(folder_path):
