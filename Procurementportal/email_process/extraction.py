@@ -39,7 +39,7 @@ import random
 from concurrent.futures import ThreadPoolExecutor, as_completed
 import traceback
 import urllib3
-import xml
+
 
 
 try:
@@ -462,7 +462,7 @@ try:
 
     
     
-        def download_attachments(access_token, message_id, save_dir="/tmp/attachments"):
+        def download_attachments(access_token, message_id, save_dir="attachments"):
             from uuid import uuid4
             try:
                 PDF_DIR = os.path.join(save_dir, "pdf")
@@ -543,7 +543,7 @@ try:
     
     
 
-        def save_email_as_eml(access_token, email_id, subject,EMAIL_ID, ATTACHMENT_DIR="/tmp/attachments"):
+        def save_email_as_eml(access_token, email_id, subject,EMAIL_ID, ATTACHMENT_DIR="attachments"):
             try:
                 EML_DIR = os.path.join(ATTACHMENT_DIR, "eml")
 
