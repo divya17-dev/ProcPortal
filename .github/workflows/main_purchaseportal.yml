@@ -72,6 +72,6 @@ jobs:
           slot-name: 'Production'
           package: './extracted'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_C33338FFB3DA42CDA1C0D3E17E9D75F7 }}
-          scm-do-build-during-deployment: true
-          enable-oryx-build: true
+          scm-do-build-during-deployment: false
+          enable-oryx-build: false
           respect-funcignore: true
