@@ -35,6 +35,7 @@ from PIL import Image
 import io
 import sys
 sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8', errors='ignore')
+from sentence_transformers import SentenceTransformer
 import random
 from concurrent.futures import ThreadPoolExecutor, as_completed
 import traceback
