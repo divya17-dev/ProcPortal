@@ -63,7 +63,6 @@ try:
         SCOPE = os.environ['SCOPE']
         WEBHOOK=os.environ['WEBHOOK_URL']
         
-
         # Hold a email
         q = queue.Queue()
         processing_queue =deque()
