@@ -462,9 +462,12 @@ try:
                 print(f"get_replies error: {e}")
                 
         
-        def download_attachments(access_token, message_id, save_dir = os.path.join(BASE_STORAGE_DIR, "attachments")):
+        def download_attachments(access_token, message_id, save_dir = None):
             from uuid import uuid4
             try:
+                BASE_STORAGE_DIR = os.environ["STORAGE_DIR", "/home/site/storagedata"]
+                save_dir = os.path.join(BASE_STORAGE_DIR, "attachments")
+                
                 PDF_DIR = os.path.join(save_dir, "pdf")
                 EXCEL_DIR = os.path.join(save_dir, "excel")
                 DOCUMENT_DIR = os.path.join(save_dir, "documents")
@@ -540,8 +543,11 @@ try:
                 print(f"download_attachments error: {e}")
             
 
-        def save_email_as_eml(access_token, email_id, subject,EMAIL_ID, ATTACHMENT_DIR = os.path.join(BASE_STORAGE_DIR, "attachments")):
+        def save_email_as_eml(access_token, email_id, subject,EMAIL_ID, ATTACHMENT_DIR = None):
             try:
+                BASE_STORAGE_DIR = os.environ["STORAGE_DIR", "/home/site/storagedata"]
+                ATTACHMENT_DIR = os.path.join(BASE_STORAGE_DIR, "attachments")
+                
                 EML_DIR = os.path.join(ATTACHMENT_DIR, "eml")
 
                 print(f"Fetching email {email_id} as .eml...")
@@ -3951,9 +3957,11 @@ try:
                 print(f"Error cleaning ASN JSON: {e}")
                 return {}, False
  
-        def clear_attachment_folder(folder_path = os.path.join(BASE_STORAGE_DIR, "attachments")):
+        def clear_attachment_folder(folder_path = None):
             """Deletes all files and subdirectories inside the given folder."""
             try:
+                BASE_STORAGE_DIR = os.environ["STORAGE_DIR", "/home/site/storagedata"]
+                folder_path = os.path.join(BASE_STORAGE_DIR, "attachments")
                 if os.path.exists(folder_path):
                     shutil.rmtree(folder_path)  # Remove the entire directory
                     os.makedirs(folder_path)  # Recreate the folder to keep the structure intact
