@@ -117,6 +117,7 @@ try:
         BASE_STORAGE_DIR = os.environ["STORAGE_DIR", "/home/site/storagedata"]
         ATTACHMENT_DIR = os.path.join(BASE_STORAGE_DIR, "attachments")
 
+    
         # # Unique variable
         seen_emails = set()
  
