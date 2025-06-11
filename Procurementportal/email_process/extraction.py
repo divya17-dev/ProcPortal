@@ -114,7 +114,8 @@ try:
         # proof_collection = db["Testing_Proof"]
         # missing_collection=db["TestingMissing"]
 
-        ATTACHMENT_DIR = os.environ['ATTACHMENT_DIR']
+        BASE_STORAGE_DIR = os.environ["STORAGE_DIR", "/home/site/storagedata"]
+        ATTACHMENT_DIR = os.path.join(BASE_STORAGE_DIR, "attachments")
 
         # # Unique variable
         seen_emails = set()
@@ -461,7 +462,7 @@ try:
                 print(f"get_replies error: {e}")
                 
         
-        def download_attachments(access_token, message_id, save_dir = os.environ['save_dir']):
+        def download_attachments(access_token, message_id, save_dir = os.path.join(BASE_STORAGE_DIR, "attachments")):
             from uuid import uuid4
             try:
                 PDF_DIR = os.path.join(save_dir, "pdf")
@@ -539,7 +540,7 @@ try:
                 print(f"download_attachments error: {e}")
             
 
-        def save_email_as_eml(access_token, email_id, subject,EMAIL_ID, ATTACHMENT_DIR = os.environ['ATTACHMENT_DIR']):
+        def save_email_as_eml(access_token, email_id, subject,EMAIL_ID, ATTACHMENT_DIR = os.path.join(BASE_STORAGE_DIR, "attachments")):
             try:
                 EML_DIR = os.path.join(ATTACHMENT_DIR, "eml")
 
@@ -3950,7 +3951,7 @@ try:
                 print(f"Error cleaning ASN JSON: {e}")
                 return {}, False
  
-        def clear_attachment_folder(folder_path = os.environ['folder_path']):
+        def clear_attachment_folder(folder_path = os.path.join(BASE_STORAGE_DIR, "attachments")):
             """Deletes all files and subdirectories inside the given folder."""
             try:
                 if os.path.exists(folder_path):
